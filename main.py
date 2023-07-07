@@ -9,24 +9,39 @@
 Вводится строка, нужно сжать ее по алгоритму, описанному выше.'''
 
 
-some_str = input('Введите строку: ')
+# some_str = input('Введите строку: ')
 
-def rle_compress(some_str):
-    compressed = ''
-    prev_char = ''
-    count = 0
+# def rle_compress(some_str):
+#     compressed = ''
+#     prev_char = ''
+#     count = 0
 
-    for char in some_str:
-        if char != prev_char:
-            if prev_char:
-                compressed += str(count) + prev_char
-            count = 1
-            prev_char = char
-        else:
-            count += 1
-    else:
-        compressed += str(count) + prev_char
-        return compressed
+#     for char in some_str:
+#         if char != prev_char:
+#             if prev_char:
+#                 compressed += str(count) + prev_char
+#             count = 1
+#             prev_char = char
+#         else:
+#             count += 1
+#     else:
+#         compressed += str(count) + prev_char
+#         return compressed
     
-compressed_str = rle_compress(some_str)
-print(compressed_str)
+# compressed_str = rle_compress(some_str)
+# print(compressed_str)
+
+
+
+'''Создайте список из случайных чисел. Найдите номер его последнего локального 
+максимума (локальный максимум — это элемент, который больше любого из своих соседей).'''
+
+
+from random import randint
+a = [randint(0, 10) for i in range(10)]
+print(a)
+a = [-1] + a + [-1]
+for i in range(-2,-(len(a)),-1):
+    if a[i - 1] < a[i] > a[i + 1]:
+        print(f'Номер элемента: {(len(a) - 2)+(i + 1)} (нумерация с 0)')
+        break
