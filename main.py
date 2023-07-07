@@ -51,17 +51,28 @@
 '''Создайте список из случайных чисел. Найдите максимальное количество его одинаковых элементов.'''
 
 
+# from random import randint
+# a = [randint(0, 10) for i in range(10)]
+# print(a)
+# a.sort()
+# print(a)
+# count = 1 
+# maxx = 0 
+# for i in range(len(a) - 1): 
+#     if a[i] == a[i + 1]:
+#         count += 1
+#         maxx = max(maxx, count)
+#     else:
+#         count = 1
+# print(maxx)
+
+
+
+'''Создайте список из случайных чисел. Найдите второй максимум.
+a = [1, 2, 3] Первый максимум == 3, второй == 2'''
+
+
 from random import randint
 a = [randint(0, 10) for i in range(10)]
 print(a)
-a.sort()
-print(a)
-count = 1 
-maxx = 0 
-for i in range(len(a) - 1): 
-    if a[i] == a[i + 1]:
-        count += 1
-        maxx = max(maxx, count)
-    else:
-        count = 1
-print(maxx)
+print(list(set(a))[-2])
