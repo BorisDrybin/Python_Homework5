@@ -37,11 +37,31 @@
 максимума (локальный максимум — это элемент, который больше любого из своих соседей).'''
 
 
+# from random import randint
+# a = [randint(0, 10) for i in range(10)]
+# print(a)
+# a = [-1] + a + [-1]
+# for i in range(-2,-(len(a)),-1):
+#     if a[i - 1] < a[i] > a[i + 1]:
+#         print(f'Номер элемента: {(len(a) - 2)+(i + 1)} (нумерация с 0)')
+#         break
+
+
+
+'''Создайте список из случайных чисел. Найдите максимальное количество его одинаковых элементов.'''
+
+
 from random import randint
 a = [randint(0, 10) for i in range(10)]
 print(a)
-a = [-1] + a + [-1]
-for i in range(-2,-(len(a)),-1):
-    if a[i - 1] < a[i] > a[i + 1]:
-        print(f'Номер элемента: {(len(a) - 2)+(i + 1)} (нумерация с 0)')
-        break
+a.sort()
+print(a)
+count = 1 
+maxx = 0 
+for i in range(len(a) - 1): 
+    if a[i] == a[i + 1]:
+        count += 1
+        maxx = max(maxx, count)
+    else:
+        count = 1
+print(maxx)
